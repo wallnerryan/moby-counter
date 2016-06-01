@@ -1,4 +1,4 @@
-var api_key = 'key-9biyu7b2qtf85kb5xy-z7xbktcoivlt4';
+var api_key = '';
 var domain = 'mailgun.clusterhq.com';
 var mailgun = require('mailgun-js')({apiKey: api_key, domain: domain});
 
@@ -18,4 +18,3 @@ module.exports = {
     });
   },
 };
-
