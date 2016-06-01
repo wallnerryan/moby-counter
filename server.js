@@ -2,6 +2,7 @@ var concat = require('concat-stream')
 var Router = require('routes-router')
 var ecstatic = require('ecstatic')
 var redis = require('redis')
+var email = require('./mailgun')
 
 module.exports = function(opts){
 
@@ -61,6 +62,15 @@ module.exports = function(opts){
           })
         })
         
+      }))
+    }
+  })
+
+  router.addRoute("/v1/email", {
+    POST: function (req, res) {
+      req.pipe(concat(function(data){
+        data = data.toString()
+        email.email_user(data)
       }))
     }
   })

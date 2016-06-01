@@ -86,10 +86,16 @@
     })
   }
 
+  function handle_email(e){
+    var emailvalue = document.getElementById('emailValue').value;    
+    $.post('/v1/email', emailvalue)
+  }
+
   $(function(){
     $('#preloader').show()
     $('#clickmessage').show()
     $('#holder').click(handle_click)
+    $('#submitEmail').click(handle_email)
     check_status()
   })
 
